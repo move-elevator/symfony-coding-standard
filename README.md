@@ -1,7 +1,7 @@
 # Symfony Coding-Standard
 
-## execute tests
+Extended coding standard for symfony projects
 
-```
-./vendor/bin/phpunit --testdox --bootstrap vendor/autoload.php tests
-```
+Get the coding standard via packagist:
+
+    composer require move-elevator/symfony-coding-standard
