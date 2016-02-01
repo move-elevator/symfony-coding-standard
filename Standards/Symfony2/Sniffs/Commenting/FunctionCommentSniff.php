@@ -79,7 +79,7 @@ class Symfony2_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commen
         $tokens = $phpcsFile->getTokens();
 
         $methodName      = $phpcsFile->getDeclarationName($stackPtr);
-        $isSpecialMethod = ($methodName === '__construct' || $methodName === '__destruct');
+        $isSpecialMethod = ($methodName === '__construct' || $methodName === '__destruct' || 'test' === substr($methodName, 0, 4));
 
         $return = null;
         foreach ($tokens[$commentStart]['comment_tags'] as $tag) {
