@@ -19,13 +19,10 @@ abstract class PhpcsTestCase extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $binary = realpath(__DIR__ . '/../vendor/bin/phpcs');
-        $standard = realpath(__DIR__ . '/../Standards/Symfony2');
-
         $processBuilder = new ProcessBuilder;
         $processBuilder
-            ->add($binary)
-            ->add('--standard=' . $standard);
+            ->add(realpath(__DIR__ . '/../vendor/bin/phpcs'))
+            ->add('--standard=' . realpath(__DIR__ . '/../Standards/Symfony2'));
 
         $this->processBuilder = $processBuilder;
     }
