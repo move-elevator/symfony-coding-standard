@@ -16,7 +16,7 @@ class UserWriter
     {
         $array = [];
 
-        $filtered_array = array_filter($array, function() {
+        $filteredArray = array_filter($array, function() {
             return 1;
         });
     }

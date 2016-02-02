@@ -2,28 +2,24 @@
 
 namespace MoveElevator\CodingStandard\Tests;
 
-use Symfony\Component\Process\ProcessBuilder;
-
 /**
  * Class PhpcsTestCase
  */
 abstract class PhpcsTestCase extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var ProcessBuilder
+     * @param $file string
+     *
+     * @return int ErrorCount
      */
-    protected $processBuilder;
-
-    /**
-     * @inheritdoc
-     */
-    protected function setUp()
+    protected function sniffFile($file)
     {
-        $processBuilder = new ProcessBuilder;
-        $processBuilder
-            ->add(realpath(__DIR__ . '/../vendor/bin/phpcs'))
-            ->add('--standard=' . realpath(__DIR__ . '/../Standards/Symfony2'));
+        $phpCs = new \PHP_CodeSniffer();
+        $phpCs->initStandard(realpath(__DIR__ . '/../Standards/Symfony2'));
 
-        $this->processBuilder = $processBuilder;
+        $result = $phpCs->processFile($file);
+        $errors = $result->getErrorCount();
+
+        return $errors;
     }
 }

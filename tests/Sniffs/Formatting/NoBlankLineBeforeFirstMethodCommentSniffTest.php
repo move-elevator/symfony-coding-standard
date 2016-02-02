@@ -15,7 +15,7 @@ class NoBlankLineBeforeFirstMethodCommentSniffTest extends PhpcsTestCase
     public function testTraitUsageInClassDoesNotThrowFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/NoBlankLineBeforeFirstMethodCommentSniff/Good.php');
-        $this->assertNull($this->executeCodeSniffer($file));
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -24,7 +24,7 @@ class NoBlankLineBeforeFirstMethodCommentSniffTest extends PhpcsTestCase
     public function testConstantInClassDoesNotThrowFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/NoBlankLineBeforeFirstMethodCommentSniff/Good2.php');
-        $this->assertNull($this->executeCodeSniffer($file));
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -33,7 +33,7 @@ class NoBlankLineBeforeFirstMethodCommentSniffTest extends PhpcsTestCase
     public function testConstantBeforeFirstClassComment()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/NoBlankLineBeforeFirstMethodCommentSniff/Good3.php');
-        $this->assertNull($this->executeCodeSniffer($file));
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -42,7 +42,7 @@ class NoBlankLineBeforeFirstMethodCommentSniffTest extends PhpcsTestCase
     public function testBlankLineBeforeMethodCommentThrowsFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/NoBlankLineBeforeFirstMethodCommentSniff/Bad.php');
-        $this->assertNotNull($this->executeCodeSniffer($file));
+        $this->assertNotEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -51,7 +51,7 @@ class NoBlankLineBeforeFirstMethodCommentSniffTest extends PhpcsTestCase
     public function testBlankLineBeforeTraitUsageThrowsFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/NoBlankLineBeforeFirstMethodCommentSniff/Bad2.php');
-        $this->assertNotNull($this->executeCodeSniffer($file));
+        $this->assertNotEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -60,23 +60,6 @@ class NoBlankLineBeforeFirstMethodCommentSniffTest extends PhpcsTestCase
     public function testBlankLineBeforeConstantStatementFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/NoBlankLineBeforeFirstMethodCommentSniff/Bad3.php');
-        $this->assertNotNull($this->executeCodeSniffer($file));
-    }
-
-    /**
-     * @param string $file
-     *
-     * @return string
-     */
-    private function executeCodeSniffer($file)
-    {
-        $this->processBuilder
-            ->add('--sniffs=Symfony2.Formatting.NoBlankLineBeforeFirstMethodComment')
-            ->add($file);
-
-        $process = $this->processBuilder->getProcess();
-        $process->run();
-
-        return $process->getOutput();
+        $this->assertNotEquals(0, $this->sniffFile($file));
     }
 }
