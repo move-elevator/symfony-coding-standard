@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/move-elevator/symfony-coding-standard.svg?branch=master)](https://travis-ci.org/move-elevator/symfony-coding-standard)
+
 # Symfony Coding-Standard
 
 Extended coding-standard for Symfony projects.
