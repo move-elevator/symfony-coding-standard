@@ -70,6 +70,8 @@
 
     <rule ref="Symfony2.Formatting.BlankLineBeforeReturn"/>
 
+    <rule ref="Symfony2.Formatting.UseArrayShortTag"/>
+
     <rule ref="Generic.PHP.ForbiddenFunctions">
         <properties>
             <property name="forbiddenFunctions" type="array" value="sizeof=>count,delete=>unset,print=>echo,is_null=>null,create_function=>null,var_dump=>null,print_r=>null,die=>null"/>
