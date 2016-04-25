@@ -7,14 +7,14 @@ use MoveElevator\CodingStandard\Tests\PhpcsTestCase;
 /**
  * Class UseArrayShortTagSniffTest
  */
-class UseArrayShortTagSniffTest extends PhpcsTestCase
+class DisallowLongArraySyntaxSniffTest extends PhpcsTestCase
 {
     /**
      * @covers Symfony2_Sniffs_Formatting_UseArrayShortTagSniff
      */
     public function testUseArrayShortTagNotThrowFailures()
     {
-        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/UseArrayShortTagSniff/Good.php');
+        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Good.php');
         $this->assertEquals(0, $this->sniffFile($file));
     }
 
@@ -23,7 +23,7 @@ class UseArrayShortTagSniffTest extends PhpcsTestCase
      */
     public function testUseArrayOldTagThrowFailures()
     {
-        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/UseArrayShortTagSniff/Bad.php');
+        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Bad.php');
 
         $this->assertEquals(2, $this->sniffFile($file));
     }
@@ -33,7 +33,7 @@ class UseArrayShortTagSniffTest extends PhpcsTestCase
      */
     public function testUseArrayShortTagMultilineNotThrowFailures()
     {
-        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/UseArrayShortTagSniff/Good2.php');
+        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Good2.php');
         $this->assertEquals(0, $this->sniffFile($file));
     }
 
@@ -42,7 +42,7 @@ class UseArrayShortTagSniffTest extends PhpcsTestCase
      */
     public function testUseArrayOldTagMultilineThrowFailures()
     {
-        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/UseArrayShortTagSniff/Bad2.php');
+        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Bad2.php');
 
         $this->assertEquals(2, $this->sniffFile($file));
     }
@@ -52,7 +52,7 @@ class UseArrayShortTagSniffTest extends PhpcsTestCase
      */
     public function testUseArrayShortTagAssicativeNotThrowFailures()
     {
-        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/UseArrayShortTagSniff/Good3.php');
+        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Good3.php');
         $this->assertEquals(0, $this->sniffFile($file));
     }
 
@@ -61,8 +61,18 @@ class UseArrayShortTagSniffTest extends PhpcsTestCase
      */
     public function testUseArrayOldTagAssociativeThrowFailures()
     {
-        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/UseArrayShortTagSniff/Bad3.php');
+        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Bad3.php');
 
         $this->assertEquals(1, $this->sniffFile($file));
+    }
+
+    /**
+     * @covers Symfony2_Sniffs_Formatting_UseArrayShortTagSniff
+     */
+    public function testUseArrayAsTypeHintInConstructorNotThrowFailures()
+    {
+        $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Good4.php');
+
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 }

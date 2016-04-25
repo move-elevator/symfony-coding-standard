@@ -13,6 +13,7 @@
     <!-- Doctrine Event Constants are not uppercase -->
     <!--<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>-->
     <rule ref="Generic.PHP.LowerCaseConstant"/>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found"/>
     <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
     <rule ref="Squiz.ControlStructures.ControlSignature"/>
     <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
@@ -69,8 +70,6 @@
     </rule>
 
     <rule ref="Symfony2.Formatting.BlankLineBeforeReturn"/>
-
-    <rule ref="Symfony2.Formatting.UseArrayShortTag"/>
 
     <rule ref="Generic.PHP.ForbiddenFunctions">
         <properties>
