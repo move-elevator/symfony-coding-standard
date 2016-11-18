@@ -59,22 +59,22 @@ class Symfony2_Sniffs_Formatting_NoBlankLineBeforeFirstMethodCommentSniff implem
             $elementBeforeConstant = $phpcsFile->findPrevious([T_WHITESPACE], $openingBrace, $constant, true);
 
             if (false != $use && ($tokens[$openingBrace]['line'] + 1) !== $tokens[$use]['line']) {
-                $phpcsFile->addWarning('Remove blank line before use Statement', $use);
+                $phpcsFile->addError('Remove blank line before use Statement', $use);
             }
 
             if (false === $use && false === $elementBeforeConstant && ($tokens[$openingBrace]['line'] + 1) != $tokens[$constant]['line']) {
-                $phpcsFile->addWarning('Remove blank line before const Statement', $constant);
+                $phpcsFile->addError('Remove blank line before const Statement', $constant);
             }
 
             if ($use != false && ($tokens[$phpcsFile->findPrevious([T_USE], $constant, $openingBrace)]['line'] + 2) !== $tokens[$constant]['line']) {
-                $phpcsFile->addWarning('Only one blank line before constant statement is allowed', $constant);
+                $phpcsFile->addError('Only one blank line before constant statement is allowed', $constant);
             }
 
             return;
         }
 
         if (1 < ($tokens[$elementToCheck]['line'] - $tokens[$openingBrace]['line'])) {
-            $phpcsFile->addWarning('Remove blank line before.', $elementToCheck);
+            $phpcsFile->addError('Remove blank line before.', $elementToCheck);
         }
     }
 }

@@ -15,7 +15,7 @@ class FunctionCommentSniffTest extends PhpcsTestCase
     public function testReturnTagAnnotationFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Commenting/FunctionCommentSniff/Bad.php');
-        $this->assertNotEquals(0, $this->sniffFileForErrors($file));
+        $this->assertNotEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -24,6 +24,6 @@ class FunctionCommentSniffTest extends PhpcsTestCase
     public function testReturnTagAnnotation()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Commenting/FunctionCommentSniff/Good.php');
-        $this->assertEquals(0, $this->sniffFileForErrors($file));
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 }

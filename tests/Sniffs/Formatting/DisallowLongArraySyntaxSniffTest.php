@@ -15,7 +15,7 @@ class DisallowLongArraySyntaxSniffTest extends PhpcsTestCase
     public function testUseArrayShortTagNotThrowFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Good.php');
-        $this->assertEquals(0, $this->sniffFileForErrors($file));
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -25,7 +25,7 @@ class DisallowLongArraySyntaxSniffTest extends PhpcsTestCase
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Bad.php');
 
-        $this->assertEquals(1, $this->sniffFileForErrors($file));
+        $this->assertEquals(2, $this->sniffFile($file));
     }
 
     /**
@@ -34,7 +34,7 @@ class DisallowLongArraySyntaxSniffTest extends PhpcsTestCase
     public function testUseArrayShortTagMultilineNotThrowFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Good2.php');
-        $this->assertEquals(0, $this->sniffFileForErrors($file));
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -44,7 +44,7 @@ class DisallowLongArraySyntaxSniffTest extends PhpcsTestCase
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Bad2.php');
 
-        $this->assertEquals(1, $this->sniffFileForErrors($file));
+        $this->assertEquals(2, $this->sniffFile($file));
     }
 
     /**
@@ -53,7 +53,7 @@ class DisallowLongArraySyntaxSniffTest extends PhpcsTestCase
     public function testUseArrayShortTagAssicativeNotThrowFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Good3.php');
-        $this->assertEquals(0, $this->sniffFileForErrors($file));
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -63,7 +63,7 @@ class DisallowLongArraySyntaxSniffTest extends PhpcsTestCase
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Bad3.php');
 
-        $this->assertEquals(1, $this->sniffFileForErrors($file));
+        $this->assertEquals(1, $this->sniffFile($file));
     }
 
     /**
@@ -73,6 +73,6 @@ class DisallowLongArraySyntaxSniffTest extends PhpcsTestCase
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/DisallowLongArraySyntaxSniff/Good4.php');
 
-        $this->assertEquals(0, $this->sniffFileForErrors($file));
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 }

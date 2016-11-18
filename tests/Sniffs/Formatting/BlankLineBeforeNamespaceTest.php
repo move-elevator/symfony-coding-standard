@@ -13,7 +13,7 @@ class BlankLineBeforeNamespaceTest extends PhpcsTestCase
     public function testBlankLineBeforeNamespaceNotThrowFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/BlankLineBeforeNamespace/Good.php');
-        $this->assertEquals(0, $this->sniffFileForWarnings($file));
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -23,7 +23,7 @@ class BlankLineBeforeNamespaceTest extends PhpcsTestCase
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/BlankLineBeforeNamespace/Bad.php');
 
-        $this->assertEquals(1, $this->sniffFileForWarnings($file));
+        $this->assertEquals(1, $this->sniffFile($file));
     }
 
     /**
@@ -33,7 +33,7 @@ class BlankLineBeforeNamespaceTest extends PhpcsTestCase
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/BlankLineBeforeNamespace/Good2.php');
 
-        $this->assertEquals(0, $this->sniffFileForWarnings($file));
+        $this->assertEquals(0, $this->sniffFile($file));
     }
 
     /**
@@ -43,6 +43,6 @@ class BlankLineBeforeNamespaceTest extends PhpcsTestCase
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/BlankLineBeforeNamespace/Bad2.php');
 
-        $this->assertEquals(1, $this->sniffFileForWarnings($file));
+        $this->assertEquals(1, $this->sniffFile($file));
     }
 }
