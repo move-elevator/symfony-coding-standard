@@ -69,7 +69,13 @@
         <message>There should always be a description, followed by a blank line, before the tags of a class comment.</message>
     </rule>
 
-    <rule ref="Symfony2.Formatting.BlankLineBeforeReturn"/>
+    <rule ref="Symfony2.Formatting.BlankLineBeforeReturn">
+        <severity>0</severity>
+    </rule>
+
+    <rule ref="Symfony2.Formatting.NoBlankLineBeforeFirstMethodComment">
+        <severity>5</severity>
+    </rule>
 
     <rule ref="Generic.PHP.ForbiddenFunctions">
         <properties>
