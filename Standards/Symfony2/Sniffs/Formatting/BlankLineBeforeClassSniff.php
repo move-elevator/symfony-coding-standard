@@ -1,6 +1,6 @@
 <?php
 
-class Symfony2_Sniffs_Formatting_BlankLineBeforeNamespaceSniff implements PHP_CodeSniffer_Sniff
+class Symfony2_Sniffs_Formatting_BlankLineBeforeClassSniff implements PHP_CodeSniffer_Sniff
 {
     /**
      * A list of tokenizers this sniff supports.
@@ -16,7 +16,7 @@ class Symfony2_Sniffs_Formatting_BlankLineBeforeNamespaceSniff implements PHP_Co
      */
     public function register()
     {
-        return [T_NAMESPACE];
+        return [T_CLASS];
     }
 
     /**
@@ -32,27 +32,13 @@ class Symfony2_Sniffs_Formatting_BlankLineBeforeNamespaceSniff implements PHP_Co
     {
         $tokens = $phpcsFile->getTokens();
         $current = $stackPtr;
-        $previousLines = $tokens[$stackPtr]['line'] - 2;
-        $prevLineTokens = array();
 
-        while ($previousLines <= $current) {
-            $current--;
-
-            if (0 <= $current) {
-                $prevLineTokens[] = $tokens[$current]['type'];
-            }
-        }
-
-        if ('T_OPEN_TAG' === $prevLineTokens[0] || 'T_WHITESPACE' !== $prevLineTokens[0] ) {
+        if ('T_WHITESPACE' === $tokens[$current - 1]['type'] && 'T_WHITESPACE' !== $tokens[$current - 2]['type']) {
             $phpcsFile->addError(
-                'Missing blank line between opening tag and namespace',
-                $stackPtr
+                'Missing blank line between class and use statements',
+                $current
             );
-
             return;
         }
-
-
-        return;
     }
 }
