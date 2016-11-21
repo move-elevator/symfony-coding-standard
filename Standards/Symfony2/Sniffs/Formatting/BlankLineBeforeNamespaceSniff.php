@@ -48,15 +48,6 @@ class Symfony2_Sniffs_Formatting_BlankLineBeforeNamespaceSniff implements PHP_Co
             }
         }
 
-        if ('T_WHITESPACE' === $prevLineTokens[0] && 'T_SEMICOLON' === $prevLineTokens[1] && in_array('T_DECLARE', $prevLineTokens)) {
-            $phpcsFile->addError(
-                'Missing blank line between declare-command and namespace',
-                $stackPtr
-            );
-
-            return;
-        }
-
         if ('T_OPEN_TAG' === $prevLineTokens[0] || 'T_WHITESPACE' !== $prevLineTokens[0] ) {
             $phpcsFile->addError(
                 'Missing blank line between opening tag and namespace',

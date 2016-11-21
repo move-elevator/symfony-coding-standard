@@ -1,5 +1,4 @@
 <?php
-declare(strict_types = 1);
 
 namespace MoveElevator\CodingStandard\Tests\Sniffs\Formatting;
 
@@ -22,7 +21,6 @@ class BlankLineBeforeNamespaceTest extends PhpcsTestCase
     public function testBlankLineBeforeNamespaceThrowFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/BlankLineBeforeNamespace/Bad.php');
-
         $this->assertEquals(1, $this->sniffFile($file));
     }
 
@@ -32,7 +30,6 @@ class BlankLineBeforeNamespaceTest extends PhpcsTestCase
     public function testBlankLineBeforeNamespaceWithoutDeclareNotThrowFailures()
     {
         $file = realpath(__DIR__ . '/../../Fixtures/Formatting/BlankLineBeforeNamespace/Good2.php');
-
         $this->assertEquals(0, $this->sniffFile($file));
     }
 
