@@ -73,6 +73,14 @@
         <severity>0</severity>
     </rule>
 
+    <rule ref="Symfony2.Formatting.BlankLineBeforeUse">
+        <severity>0</severity>
+    </rule>
+
+    <rule ref="Symfony2.Formatting.BlankLineBeforeClass">
+        <severity>0</severity>
+    </rule>
+
     <rule ref="Symfony2.Formatting.NoBlankLineBeforeFirstMethodComment">
         <severity>5</severity>
     </rule>
